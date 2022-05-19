@@ -1,0 +1,33 @@
+<ion-header [translucent]="true">
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">    
+    <ion-toolbar>
+      <ion-buttons slot="primary">
+        <ion-button  [routerLink]="['/cadastro-aplicativo']">
+          <ion-icon  name="add"></ion-icon><ion-icon name="tablet-portrait"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+      <ion-title>Aplicativos Cadastrados</ion-title>  
+    </ion-toolbar>
+    
+  </ion-header>
+<ion-item>
+  <div >
+    <ion-label class="nome"><b>NOME</b></ion-label>
+  </div>
+  <div class="perfil">
+    <ion-label><b class="bundleId">BUNDLE ID</b></ion-label>
+  </div>
+</ion-item>
+  <ion-item *ngFor = "let a of aplicativos">
+    <ion-label>
+      {{a.nome}}
+    </ion-label>
+    <ion-label>
+      {{a.bundleId}}
+    </ion-label>
+    <ion-button fill="outline" color="danger" shape="round" (click)="mensagemExcluirAplicativo(a)">Deletar</ion-button>
+  </ion-item>
+</ion-content>

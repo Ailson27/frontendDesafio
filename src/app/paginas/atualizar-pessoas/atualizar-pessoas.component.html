@@ -1,0 +1,55 @@
+<ion-header [translucent]="true">
+  
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">    
+    <ion-toolbar>
+      <ion-buttons slot="start"><ion-icon [routerLink]="['/tabs/tab1']" slot="icon-only" name="arrow-back"></ion-icon>
+      </ion-buttons>
+      <ion-title>Atualizar Pessoas</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+    <!-- Formulario -->
+    <section>
+      <div class="container">
+        <form method="post" #frm="ngForm" (ngSubmit)="atualizar(frm)">  
+          <div class="form-group">
+            <ion-input type="text" id="nome" name="nome" class="form-control" placeholder="Nome" [(ngModel)]="contato.nome"></ion-input>
+          </div>
+          <div class="form-group">
+            <ion-input type="number" id="cpf" name="cpf" class="form-control" placeholder="CPF" [(ngModel)]="contato.cpf"></ion-input>
+          </div>
+          <div class="form-group">
+            <ion-input type="text" id="rg" name="rg" class="form-control" placeholder="RG" [(ngModel)]="contato.rg"></ion-input>
+          </div>
+           <div class="form-group">
+            <ion-input type="date" id="dataNascimento" name="dataNascimento" class="form-control" placeholder="Data Nascimento" [(ngModel)]="contato.dataNascimento"></ion-input> 
+          </div> 
+            <div class="form-group" *ngIf="perfis">
+            <ion-label>PERFIL</ion-label>
+            <ion-select name="perfil" [(ngModel)]="contato.idPerfil" interface="action-sheet" class="custom-options" >
+              <ion-select-option *ngFor = "let p of perfis" [value]="p.idPerfil">
+                   {{p.perfil}}
+              </ion-select-option>
+           </ion-select>
+          </div>
+           <div class="form-group" *ngIf="aplicativos">
+            <ion-label>APLICATIVOS</ion-label>
+            <ion-select name="aplicativo" [(ngModel)]="contato.idApp" multiple class="custom-options" cancelText="Cancelar" okText="Confirmar">
+              <ion-select-option *ngFor = "let a of aplicativos" [value]="a.idApp">
+                {{a.nome}}
+              </ion-select-option>
+            </ion-select>
+          </div> 
+          <div>  
+            <ion-button [routerLink]="['/tabs/tab1']" expand="full" type="submit" size="large" class="btn btn-primary"  [disabled]="frm.invalid">Atualizar</ion-button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+</ion-content>
+
+

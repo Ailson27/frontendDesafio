@@ -1,0 +1,33 @@
+<ion-header [translucent]="true">
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">    
+    <ion-toolbar>
+      <ion-buttons slot="start"><ion-icon [routerLink]="['/tabs/tab3']" slot="icon-only"  name="arrow-back"></ion-icon>
+      </ion-buttons>
+      <ion-title>Cadastro De Aplicativo</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <form [formGroup]="aplicativoForm" class="form mt-4" (submit)="cadastrarAplicativo()">
+    <div class="form-group">
+      <ion-input 
+        formControlName="nomeAplicativo" class="form-control" 
+        placeholder="Nome Aplicativo"></ion-input>
+        <small  *ngIf="aplicativoForm.get('nomeAplicativo').errors?.required" class="text-danger">
+          Nome obrigatório!
+        </small>
+    </div>
+     <div class="form-group">
+      <ion-input 
+        formControlName="bundleId" class="form-control" 
+        placeholder="Bundle ID"></ion-input>
+        <small  *ngIf="aplicativoForm.get('bundleId').errors?.required" class="text-danger">
+          Bundle ID obrigatório!
+        </small>
+    </div> 
+    <ion-button type="submit" expand="full" [disabled]="aplicativoForm.invalid"><b>Cadastrar</b></ion-button>
+  </form>
+  
+</ion-content>

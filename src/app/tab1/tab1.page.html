@@ -1,0 +1,43 @@
+<ion-header [translucent]="true">
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">    
+    <ion-toolbar>
+      <ion-buttons slot="primary">
+        <ion-button  [routerLink]="['/cadastro-pessoas']">
+          <ion-icon slot="icon-only" name="person-add"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+      <ion-title>Pessoas Cadastradas</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+<ion-item>
+  <div>
+    <ion-label class="cpf"><b>CPF</b></ion-label>
+  </div>
+  <div>
+    <ion-label><b>NOME</b></ion-label>
+  </div>
+</ion-item>
+  <ion-item *ngFor = "let c of contatos ">
+    <ion-label>
+      {{c.cpf}}
+    </ion-label>
+    <ion-label>
+      {{c.nome}}
+    </ion-label>
+    <!-- <ion-label>
+      {{c.dataNascimento}}
+    </ion-label> -->
+    <!-- <ion-label>
+      {{c.rg}}
+    </ion-label> -->
+    <!-- <ion-router-outlet></ion-router-outlet> -->
+  <ion-item>
+    <ion-button fill="outline" color="medium" shape="round" (click)="pegarDadosAlteracao(c)">Editar</ion-button>
+  </ion-item>
+    <ion-button fill="outline" color="danger" shape="round" (click)="exibirAlertaExcluir(c)">Deletar</ion-button>
+  </ion-item>
+</ion-content>

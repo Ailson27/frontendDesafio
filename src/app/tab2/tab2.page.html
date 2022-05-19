@@ -1,0 +1,46 @@
+<ion-header [translucent]="true">
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">    
+    <ion-toolbar>
+      <ion-buttons slot="primary">
+        <ion-button  [routerLink]="['/cadastro-perfil']">
+          <ion-icon  name="add"></ion-icon><ion-icon name="ribbon"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+      <ion-title>Perfis cadastrados</ion-title>
+      
+    </ion-toolbar>
+    
+    
+  </ion-header>
+
+<!--   
+  <ion-item>
+    <ion-label>
+      <ion-button [routerLink]="['/cadastro-perfil']" fill="outline" shape="round"><ion-icon name="add"></ion-icon><ion-icon name="ribbon"></ion-icon></ion-button>
+    </ion-label>
+  </ion-item> -->
+
+<ion-item>
+  <div >
+    <ion-label class="codigo"><b>CODIGO</b></ion-label>
+  </div>
+  <div class="perfil">
+    <ion-label><b class="nomePerfil">PERFIL</b></ion-label>
+  </div>
+</ion-item>
+  <ion-item *ngFor = "let p of perfis">
+    <ion-label>
+      {{p.idPerfil}}
+    </ion-label>
+    <ion-label>
+      {{p.perfil}}
+    </ion-label>
+  <!-- <ion-item [routerLink]="['']">
+    <ion-button fill="outline" color="medium" shape="round" (click)="pegarDadosAlteracao(c)">Editar</ion-button>
+  </ion-item> -->
+    <ion-button fill="outline" color="danger" shape="round" (click)="mensagemExcluirPerfil(p)">Deletar</ion-button>
+  </ion-item>
+</ion-content>

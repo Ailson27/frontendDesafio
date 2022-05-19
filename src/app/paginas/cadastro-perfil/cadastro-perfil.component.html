@@ -1,0 +1,25 @@
+<ion-header [translucent]="true">
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">    
+    <ion-toolbar>
+      <ion-buttons slot="start"><ion-icon [routerLink]="['/tabs/tab2']" slot="icon-only" name="arrow-back"></ion-icon>
+      </ion-buttons>
+      <ion-title>Cadastro De Perfil</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <form [formGroup]="perfilForm" class="form mt-4" (submit)="cadastrarPerfil()">
+    <div class="form-group">
+      <ion-input 
+        formControlName="nomePerfil" class="form-control" 
+        placeholder="Nome pefil"></ion-input>
+        <small  *ngIf="perfilForm.get('nomePerfil').errors?.required" class="text-danger">
+          Nome do perfil obrigatório!
+        </small>
+    </div>
+    <ion-button type="submit" expand="full" [disabled]="perfilForm.invalid"><b>Cadastrar</b></ion-button>
+  </form>
+  
+</ion-content>
